@@ -11,7 +11,6 @@ import SingleVideoPage from './Pages/SingleVideoPage';
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Handle category click logic
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };

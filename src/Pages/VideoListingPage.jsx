@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './VideoListingPage.css';
 
 const VideoListingPage = ({ videos, selectedCategory }) => {
-  // Filter the videos based on the selected category
+ 
   const filteredVideos = selectedCategory
     ? videos.filter((video) => video.category === selectedCategory)
     : videos;

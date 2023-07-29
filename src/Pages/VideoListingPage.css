@@ -1,4 +1,4 @@
-/* VideoListingPage.css */
+
 
 .video-list {
     display: flex;
@@ -7,7 +7,7 @@
   }
   
   .video-card {
-    flex: 0 0 calc(30% - 20px); /* Adjust the width and add spacing */
+    flex: 0 0 calc(30% - 20px); 
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -41,9 +41,7 @@
     font-size: 18px;
   }
   
-  /* Add more styles as needed for other video details and player */
-  
-  /* Optional: Adjust styles for responsiveness on smaller screens */
+
   
   @media (max-width: 992px) {
     .video-card {
