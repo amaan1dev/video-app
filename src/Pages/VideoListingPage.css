@@ -1,0 +1,59 @@
+/* VideoListingPage.css */
+
+.video-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .video-card {
+    flex: 0 0 calc(30% - 20px); /* Adjust the width and add spacing */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .video-details {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .video-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .video-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  /* Add more styles as needed for other video details and player */
+  
+  /* Optional: Adjust styles for responsiveness on smaller screens */
+  
+  @media (max-width: 992px) {
+    .video-card {
+      flex: 0 0 calc(48% - 20px);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .video-card {
+      flex: 0 0 100%;
+    }
+  }
+  

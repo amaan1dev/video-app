@@ -3,33 +3,40 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import VideoListingPage from './Pages/VideoListingPage';
-import { VideoContext } from './contexts/VideoContext';
-import { categories } from './Data/categories'; 
-import Sidebar from './components/Sidebar'; 
+import { categories } from './Data/categories';
+import Sidebar from './components/Sidebar';
+import { videos } from './Data/videos';
+import SingleVideoPage from './Pages/SingleVideoPage';
 
 const App = () => {
-  // Define state and functions to manage video data here
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Placeholder implementation of handleCategoryClick function
+  // Handle category click logic
   const handleCategoryClick = (category) => {
-    // Implement the logic for handling category click here
-    // You can perform any action you need, such as updating the state, etc.
+    setSelectedCategory(category);
   };
 
   return (
     <Router>
-      <Sidebar /> 
-      <Routes>
-        <Route
-          path="/"
-          element={<HomePage categories={categories} onCategoryClick={handleCategoryClick} />}
-        />
-        <Route
-          path="/videos/:category"
-          element={<VideoListingPage />}
-        />
-       
-      </Routes>
+      <div className="container">
+        <Sidebar />
+        <div className="content">
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePage categories={categories} onCategoryClick={handleCategoryClick} />}
+            />
+            <Route
+              path="/videos/:category"
+              element={<VideoListingPage videos={videos} selectedCategory={selectedCategory} />}
+            />
+            <Route
+              path="/videos/:videoId"
+              element={<SingleVideoPage videos={videos} />}
+            />
+          </Routes>
+        </div>
+      </div>
     </Router>
   );
 };

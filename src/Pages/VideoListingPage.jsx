@@ -1,14 +1,32 @@
-import React, { useContext } from 'react';
-import VideoList from '../components/VideoList';
-import { VideoContext } from '../contexts/VideoContext';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './VideoListingPage.css';
 
-const VideoListingPage = ({ category }) => {
-  const { videos, toggleWatchLater } = useContext(VideoContext);
+const VideoListingPage = ({ videos, selectedCategory }) => {
+  // Filter the videos based on the selected category
+  const filteredVideos = selectedCategory
+    ? videos.filter((video) => video.category === selectedCategory)
+    : videos;
 
   return (
-    <div className="video-listing-page">
-      <h2>{category}</h2>
-      <VideoList videos={videos} onWatchLaterToggle={toggleWatchLater} />
+    <div>
+      <h2>Videos</h2>
+      <div className="video-list">
+        {filteredVideos.map((video) => (
+          <Link key={video._id} to={`/videos/${video._id}`} className="video-link">
+            <div className="video-card">
+              <img src={video.thumbnail} alt="vid" className="video-thumbnail" />
+              <div className="video-details">
+                <img src={video.thumbnail} alt="avatar" className="video-avatar" />
+                <div className="video-text">
+                  <h3>{video.title}</h3>
+                  <span>{video.views} views | {video.creator}</span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
